@@ -1,21 +1,20 @@
 package org.example;
 
+import java.util.Comparator;
 import java.util.List;
 
-public class StreamExamplesOnNumbers {
+public class FP01ExampleOnNumbers {
     public static void main(String[] args) {
         //print the numbers using foreach
-        List<Integer> numbers = List.of(12, 4,7,5,9,10,14,1);
+        List<Integer> numbers = List.of(2,4,7,5,9,1);
         numbers.stream().forEach(System.out::println);
         System.out.println("----------------");
         /**
-         12
+         2
          4
          7
          5
          9
-         10
-         14
          1
          */
 
@@ -23,10 +22,8 @@ public class StreamExamplesOnNumbers {
         numbers.stream().filter((n)->n%2==0).forEach(System.out::println);
         System.out.println("----------------");
         /**
-         12
+         2
          4
-         10
-         14
          */
 
         //Find the sum of square of even numbers
@@ -34,12 +31,33 @@ public class StreamExamplesOnNumbers {
                 .map(x-> x*x)
                 .reduce(0,Integer::sum);
         System.out.println(sum);
+        System.out.println("----------------");
         /**
-         456
+         20
          */
 
+        //sort the numbers in natural order
+        numbers.stream().sorted().forEach(System.out::println);
+        System.out.println("----------------");
+        /**
+         1
+         2
+         4
+         5
+         7
+         9
+         */
 
-
-
+        //sort the numbers in descending order
+        numbers.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+        System.out.println("----------------");
+        /**
+         9
+         7
+         5
+         4
+         2
+         1
+         */
     }
 }
