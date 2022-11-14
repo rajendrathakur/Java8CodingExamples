@@ -66,8 +66,5 @@ public class FP04ExampleOnDuplicateNumbers {
          6:1
          8:1
          */
-
-
-
     }
 }
