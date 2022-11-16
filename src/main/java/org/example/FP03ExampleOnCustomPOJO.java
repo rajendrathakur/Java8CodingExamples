@@ -5,13 +5,7 @@ import java.util.stream.Collectors;
 
 public class FP03ExampleOnCustomPOJO {
     public static void main(String[] args) {
-        List<Employee> empList = List.of(
-                new Employee("Rajendra", 42, 25000, "Development"),
-                new Employee("Ashok", 22, 35000, "Development"),
-                new Employee("Sravan", 32, 24000, "QA"),
-                new Employee("Ashish", 32, 62000, "HR"),
-                new Employee("Mohan", 34, 38000, "QA")
-        );
+        List<Employee> empList = Employee.createEmployeesList();
 
         //Print the employee names hose salary is greater than 30000
         empList.stream().filter(e -> e.getSalary() > 30000)
