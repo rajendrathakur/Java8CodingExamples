@@ -1,4 +1,4 @@
-package org.example;
+package org.example.funcpro.streams;
 
 import java.util.Arrays;
 import java.util.List;

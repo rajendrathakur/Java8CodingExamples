@@ -1,4 +1,4 @@
-package org.example;
+package org.example.funcpro.streams;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

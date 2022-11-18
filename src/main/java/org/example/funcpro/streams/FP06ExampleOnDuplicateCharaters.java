@@ -1,4 +1,4 @@
-package org.example;
+package org.example.funcpro.streams;
 
 import java.util.stream.Collectors;
 
