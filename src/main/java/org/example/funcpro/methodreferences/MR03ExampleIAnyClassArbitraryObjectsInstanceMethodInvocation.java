@@ -52,13 +52,7 @@ public class MR03ExampleIAnyClassArbitraryObjectsInstanceMethodInvocation {
                 .forEach(System.out::println);
         System.out.println("-----------");
 
-        List<Employee> empList = new ArrayList<>(List.of(
-                new Employee("Rajendra", 42, 25000, "Development"),
-                new Employee("Ashok", 22, 35000, "Development"),
-                new Employee("Sravan", 32, 24000, "QA"),
-                new Employee("Ashish", 38, 62000, "HR"),
-                new Employee("Mohan", 34, 38000, "QA")
-        ));
+        List<Employee> empList =  Employee.createEmployeesList();
 
         /**
          * Convert List to Map with key as age and value as salary
