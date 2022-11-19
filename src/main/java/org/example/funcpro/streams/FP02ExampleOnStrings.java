@@ -35,7 +35,9 @@ public class FP02ExampleOnStrings {
          */
 
         //sort the courses based on their length
-        courses.stream().sorted(Comparator.comparing(s-> s.length())).forEach(System.out::println);
+       // courses.stream().sorted(Comparator.comparing(s-> s.length())).forEach(System.out::println);
+        // For better performance, we can use comparingInt(s->s.length)
+        courses.stream().sorted(Comparator.comparingInt(s-> s.length())).forEach(System.out::println);
         System.out.println("--------");
         /**
          Java
@@ -62,7 +64,7 @@ public class FP02ExampleOnStrings {
          */
 
         //sort the courses based on their length in natural order
-        courses.stream().sorted(Comparator.comparing(String::length).thenComparing(Comparator.naturalOrder()))
+        courses.stream().sorted(Comparator.comparingInt(String::length).thenComparing(Comparator.naturalOrder()))
                 .forEach(System.out::println);
         System.out.println("--------");
         /**
@@ -76,7 +78,7 @@ public class FP02ExampleOnStrings {
          */
 
         //sort the courses based on their length in descending order
-        courses.stream().sorted(Comparator.comparing(String::length).thenComparing(Comparator.reverseOrder()))
+        courses.stream().sorted(Comparator.comparingInt(String::length).thenComparing(Comparator.reverseOrder()))
                 .forEach(System.out::println);
         System.out.println("--------");
         /**
@@ -88,6 +90,5 @@ public class FP02ExampleOnStrings {
          Hibernate
          Spring Boot
          */
-
     }
 }

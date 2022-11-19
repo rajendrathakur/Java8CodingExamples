@@ -19,7 +19,7 @@ public class FP01ExampleOnNumbers {
          */
 
         //filter only even numbers
-        numbers.stream().filter((n)->n%2==0).forEach(System.out::println);
+        numbers.stream().filter(n->n%2==0).forEach(System.out::println);
         System.out.println("----------------");
         /**
          2
@@ -27,7 +27,7 @@ public class FP01ExampleOnNumbers {
          */
 
         //Find the sum of square of even numbers
-        int sum = numbers.stream().filter((n)->n%2==0)
+        int sum = numbers.stream().filter(n->n%2==0)
                 .map(x-> x*x)
                 .reduce(0,Integer::sum);
         System.out.println(sum);
