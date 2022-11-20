@@ -63,13 +63,21 @@ public class FP03ExampleOnCustomPOJO {
 
         //Print the max salary of employees for each department wise in the form of Map.
         empList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparing(Employee::getSalary))))
-                .entrySet().stream().collect(Collectors.toMap(k->k.getKey(), v->v.getValue()))
-                .forEach((k, v) -> System.out.println((k + ":" + v.get().getSalary())));
+                .entrySet().stream().collect(Collectors.toMap(k->k.getKey(), v->v.getValue().get().getSalary()))
+                .forEach((k, v) -> System.out.println((k + ":" + v)));
+        System.out.println("---------");
         /**
          QA:38000
          Development:35000
          HR:62000
          */
+
+        //print the employees list whose salary > 20000 for each department
+        empList.stream().collect(Collectors.groupingBy(Employee::getDepartment))
+                .entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue()
+                        .stream().filter(emp -> emp.getSalary()>20000).collect(Collectors.toList())))
+                .forEach((k,v)-> System.out.println(k + ":" + v));
+
 
     }
 }

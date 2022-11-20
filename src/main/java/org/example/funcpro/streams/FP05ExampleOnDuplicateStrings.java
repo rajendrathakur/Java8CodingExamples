@@ -23,5 +23,9 @@ public class FP05ExampleOnDuplicateStrings {
          Docker:1
          AWS:1
          */
+
+        /**
+         * We can also sort like sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+         */
     }
 }

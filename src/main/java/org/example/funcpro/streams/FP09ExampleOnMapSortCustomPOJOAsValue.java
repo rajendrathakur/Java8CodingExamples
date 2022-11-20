@@ -41,5 +41,18 @@ public class FP09ExampleOnMapSortCustomPOJOAsValue {
          4;Employee(name=Samantha, age=46, salary=35000, department=QA)
          5;Employee(name=Nikitha, age=48, salary=62000, department=HR)
          */
+
+        //sort the map by values specific to employees age and print value as age in descending order
+        empMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.comparingInt(Employee::getAge).reversed()))
+                 .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().getAge(),
+                 (oldEntry,newEntry)-> oldEntry, LinkedHashMap::new))
+                .forEach((k,v)-> System.out.println(k+":" + v));
+        /**
+         5:48
+         4:46
+         3:44
+         1:42
+         2:22
+         */
         }
 }

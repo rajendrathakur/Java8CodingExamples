@@ -66,5 +66,8 @@ public class FP04ExampleOnDuplicateNumbers {
          6:1
          8:1
          */
+        /**
+         * We can also sort like sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+         */
     }
 }
