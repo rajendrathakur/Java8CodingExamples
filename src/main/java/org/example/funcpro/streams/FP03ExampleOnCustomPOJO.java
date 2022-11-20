@@ -77,7 +77,11 @@ public class FP03ExampleOnCustomPOJO {
                 .entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue()
                         .stream().filter(emp -> emp.getSalary()>20000).collect(Collectors.toList())))
                 .forEach((k,v)-> System.out.println(k + ":" + v));
-
+        /**
+         QA:[Employee(name=Sravan, age=32, salary=24000, department=QA), Employee(name=Mohan, age=34, salary=38000, department=QA)]
+         Development:[Employee(name=Rajendra, age=42, salary=25000, department=Development), Employee(name=Ashok, age=22, salary=35000, department=Development)]
+         HR:[Employee(name=Ashish, age=32, salary=62000, department=HR)]
+         */
 
     }
 }
