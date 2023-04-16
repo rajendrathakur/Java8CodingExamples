@@ -20,7 +20,7 @@ public class FP03ExampleOnCustomPOJO {
         //Sort the employees based on their age. If ages are equal, then sort based on their salary
         System.out.println(empList.stream().sorted(Comparator.comparing(Employee::getAge).thenComparing(Employee::getSalary))
                 .collect(Collectors.toList()));
-        System.out.println("---------");
+        System.out.println("--- ------");
         /**
          [Employee(name=Ashok, age=22, salary=35000, department=Development),
          Employee(name=Sravan, age=32, salary=24000, department=QA),

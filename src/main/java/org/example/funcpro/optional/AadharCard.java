@@ -3,9 +3,9 @@ package org.example.funcpro.optional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
-public class Continent {
-    private String name;
-    private Country country;
+@Data
+public class AadharCard {
+    private long number;
+    private Address address;
 }

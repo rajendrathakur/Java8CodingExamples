@@ -3,9 +3,10 @@ package org.example.funcpro.optional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
-public class State {
-    private String name;
-    private String capital;
+@Data
+public class Address {
+    private String streetName;
+    private String city;
+    private int pincode;
 }

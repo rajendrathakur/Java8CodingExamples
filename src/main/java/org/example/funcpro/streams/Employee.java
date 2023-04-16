@@ -2,16 +2,18 @@ package org.example.funcpro.streams;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Employee {
-    private String name;
-    private int age;
-    private int salary;
-    private String department;
+    private String name = "Mahesh";
+    private int age = 40;
+    private int salary = 24000;
+    private String department = "Development";
 
     public static List<Employee> createEmployeesList() {
         return List.of(

@@ -3,9 +3,10 @@ package org.example.funcpro.optional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
-public class Country {
-    private String name;
-    private State state;
+@Data
+public class Person {
+    private int age;
+    private int salary;
+    private AadharCard aadharCard;
 }
