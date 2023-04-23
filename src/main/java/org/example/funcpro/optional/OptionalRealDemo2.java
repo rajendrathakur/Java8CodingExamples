@@ -17,12 +17,7 @@ public class OptionalRealDemo2 {
         return 0;
     }
 
-    int getResultWithOptional(Optional<PersonOpt> personOptional){
-        return personOptional.flatMap(person -> person.getAadharCardOpt())
-                .flatMap(aadhar -> aadhar.getAddressOpt())
-                .map(address -> address.getPincode())
-                .orElse(500090);
-    }
+
 
     public static void main(String[] args) {
         Address address = new Address("RP road","Hyderabad", 500080);
@@ -32,9 +27,28 @@ public class OptionalRealDemo2 {
         OptionalRealDemo2 optionalRealDemo2 = new OptionalRealDemo2();
         System.out.println(optionalRealDemo2.getResultWithoutOptional(person));
 
+
         AadharCardOpt aadharCardOpt = new AadharCardOpt(123456781234L, address);
-        PersonOpt personOpt = new PersonOpt(23,25000, aadharCardOpt);
-        System.out.println(optionalRealDemo2.getResultWithOptional(Optional.of(personOpt)));
+        PersonOpt personOpt = new PersonOpt(23,25000, null);
+
+        Optional<PersonOpt> personOptOptional = Optional.of(personOpt);
+        System.out.println(optionalRealDemo2.getResultWithOptional(personOptOptional));
+
+
+
+
+
+
 
     }
+
+    private int getResultWithOptional(Optional<PersonOpt> personOptOptional) {
+        return personOptOptional.flatMap(personOpt -> personOpt.getAadharCardOpt())
+                .flatMap(aadharCardOpt -> aadharCardOpt.getAddressOpt())
+                .map(address -> address.getPincode())
+                .orElse(500090);
+
+    }
+
+
 }

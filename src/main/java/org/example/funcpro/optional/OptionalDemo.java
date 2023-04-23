@@ -4,40 +4,42 @@ import java.util.Optional;
 
 public class OptionalDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
 
-        Optional abc = Optional.empty();
-        System.out.println("Empty optional" + abc.orElseGet(() -> "Default Value"));
-        //abc.get();
+        Optional<String> emptyOptional = Optional.empty();
+        //System.out.println(emptyOptional.orElseThrow(() -> new IllegalArgumentException("There is no valid value")));
 
-        Optional<String> hello = Optional.of("Hello");
-        System.out.println(hello);
+        Optional<String> obj = Optional.of("Test");
+        System.out.println(obj.get());
 
-        //Optional<String> hello1 = Optional.of(null);
+        Optional<String> obj1 = Optional.ofNullable("Rajendra");
+        //System.out.println(obj1.get());
 
-        Optional<String> obj = Optional.ofNullable("One");
-        //System.out.println(obj.get());
-
-        if (obj.isPresent()) {
-            System.out.println(obj.get());
+        if(obj1.isPresent()) {
+            System.out.println("Value is available");
         } else {
-            System.out.println("Not available");
+            System.out.println("not available");
         }
 
-        obj.ifPresent((s) -> System.out.println(s.toUpperCase()));
+        obj1.ifPresent(s -> System.out.println(s.toUpperCase()));
 
-        System.out.println(obj.filter(s-> s.startsWith("N")).orElse("Shyam"));
+        System.out.println(obj1.filter(s-> s.startsWith("R")).orElse("Mohan"));
 
-        System.out.println(obj.map(s-> s.toLowerCase()).orElse("Prabhas"));
+        System.out.println(obj1.map(s-> s.length()).orElse(10));
 
         Address address = new Address("RP road","Hyderabad", 500080);
         AadharCardOpt aadharCardOpt = new AadharCardOpt(123456781234L, address);
-        PersonOpt person = new PersonOpt(23,25000, aadharCardOpt);
+        PersonOpt personOpt = new PersonOpt(23,25000, aadharCardOpt);
+
+        Optional<PersonOpt> personOptOptional = Optional.of(personOpt);
+        System.out.println(personOptOptional.map(personOpt1 -> personOpt1.getAadharCardOpt()).get());
+
+        System.out.println(personOptOptional.flatMap(personOpt1 -> personOpt1.getAadharCardOpt()));
 
 
-        Optional<PersonOpt> personOptional = Optional.of(person);
-        System.out.println(personOptional.map(p -> p.getAadharCardOpt()).get().get().getNumber());
-        System.out.println(personOptional.flatMap(p -> p.getAadharCardOpt()).get().getNumber());
+
+
+
 
 
     }

@@ -12,11 +12,13 @@ public class OptionalRealDemo1 {
     }
 
     Optional<String> getOptionalResult() {
-        String str = "Seven";
+        String str = null;
         //some business logic
         // str = "Ramesh";
         return Optional.ofNullable(str);
     }
+
+
 
 
     public static void main(String[] args) {
@@ -31,11 +33,15 @@ public class OptionalRealDemo1 {
         }
         System.out.println("int value is :" + i);
 
-        //Java8 Approach
-        Optional<String> result = new OptionalRealDemo1().getOptionalResult();
+        Optional<String> opt = new OptionalRealDemo1().getOptionalResult();
 
-        i = result.map(s -> s.length()).orElse("Default".length());
-        System.out.println("int value new Optional is :" + i);
+        i = opt.map(s -> s.length()).orElse( "Default".length());
+        System.out.println("int value is :" + i);
+
+
+
+
+
 
     }
 }
